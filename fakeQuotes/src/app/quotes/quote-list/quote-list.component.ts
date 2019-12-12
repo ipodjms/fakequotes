@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { QuoteService } from '../shared/quote.service';
 
 @Component({
   selector: 'app-quote-list',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class QuoteListComponent implements OnInit {
 
-  constructor() { }
+  public teste;
+  constructor(private quoteService: QuoteService) { }
 
   ngOnInit() {
+    this.teste = this.quoteService.mock;
+    console.log (this.  teste);
   }
 
 }
