@@ -9,9 +9,9 @@ import { Quote } from '@angular/compiler';
 })
 export class WebsocketService {
 
+
   public mySubject: Subject<any> = new Subject();
   public latestData: Observable<any> = this.mySubject.asObservable();
-
 
   constructor(
     private injector: Injector,
@@ -21,16 +21,19 @@ export class WebsocketService {
     this.setData();
   }
 
+  getItems() {
+    return this.latestData;
+  }
+
   public setData() {
     this.mySubject.next(this.get());
   }
 
-  public get(): void {
+  public get(): any {
     let socket = new WebSocket(`${this.url}/${this.endpoint}`);
     socket.onmessage = function (event) {
-          console.log (event.data);
-          return event.data;
     };
+    this.mySubject.next('teste');
   }
 
 }
