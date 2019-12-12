@@ -1,18 +1,29 @@
 import { Injectable, Injector, Inject } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, Subject, interval } from 'rxjs';
+import { Quote } from '@angular/compiler';
+// import 'rxjs/add/observable/interval';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class WebsocketService {
 
-  //const sequence = new Observable(sequenceSubscriber);
+  public mySubject: Subject<any> = new Subject();
+  public latestData: Observable<any> = this.mySubject.asObservable();
+
 
   constructor(
     private injector: Injector,
     @Inject('url') public url: string,
     @Inject('endpoint') public endpoint: string,
-  ) {}
+  ) {
+    this.setData();
+  }
+
+  public setData() {
+    this.mySubject.next(this.get());
+  }
 
   public get(): void {
     let socket = new WebSocket(`${this.url}/${this.endpoint}`);
