@@ -48,7 +48,7 @@ export class WebsocketService {
 
   public getItensByServer(e, conn, count) {
     this.myArray.push(JSON.parse(e));
-    if (count === 10) {
+    if (count === 12) {
         conn.close();        
         this.transformData(this.myArray);
     }

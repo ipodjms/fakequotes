@@ -9,10 +9,10 @@ export class QuoteComponent implements OnInit {
 
   @Input() name: string;
   @Input() price: string;
+  @Input() index: number;
 
   constructor() { }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
 }

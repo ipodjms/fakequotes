@@ -1,14 +1,13 @@
 <div class="hold-quotes">
     
-    
     <div class="float-left hold-title">
         <h1>Explore o mercado</h1>
     </div>
 
     <div class="float-right hold-btns">
         <span class="color color-gray-300 mr-3 order">Ordenar:</span>
-        <a class="button color-white bg-blue mr-2" (click)="orderByHighPrice()">Em Alta</a>
-        <a class="button color-gray-300 bg-gray-200" (click)="orderByLowPrice()">Em Baixa</a>
+        <a class="button mr-2" [ngClass]="{'color-white bg-blue': controlBtn === true, 'color-gray-300 bg-gray-200': controlBtn === false}" (click)="orderByHighPrice()">Em Alta</a>
+        <a class="button" [ngClass]="{'color-white bg-blue': controlBtn === false, 'color-gray-300 bg-gray-200': controlBtn === true}" (click)="orderByLowPrice()">Em Baixa</a>
     </div>
 
     <div class="clearfix"></div>
@@ -18,13 +17,13 @@
     <div class="hold-itens">
         <div class="row">
             <div *ngFor="let quote of quotes; let i = index" class="col-lg-4 col-md-4 col-sm-1">
-                <app-quote [name]="quote?.name" [price]="quote?.value"></app-quote>
+                <app-quote [name]="quote?.name" [price]="quote?.value" [index]="i"></app-quote>
             </div>
         </div>
         
     </div>
-    <div class="clearfix d-block mt-4 text-center">
-        <a class="button color-white bg-green" (click)="reloadItens()">Regarregar</a>
+    <div class="clearfix d-block mt-4 mb-4 text-center pb-4">
+        <a class="button color-white bg-green" (click)="reloadItens()">Atualizar</a>
     </div>
 
 </div>
