@@ -32,6 +32,21 @@ export class QuoteListComponent implements OnInit {
     this.quoteService.startConnection();
   }
 
-  public orderByHight() { }
+  
+  public orderByLowPrice() {
+    this.quotes = this.quotes
+  .filter((quotes, index) => this.quotes.lastIndexOf(quotes) === index)
+  .sort((a, b) => a.value < b.value ? -1 : 1);
+  console.log(this.quotes);   
+  }
+  
+  public orderByHighPrice() {
+    this.quotes = this.quotes
+  .filter((quotes, index) => this.quotes.lastIndexOf(quotes) === index)
+  .sort((a, b) => a.value > b.value ? -1 : 1);
+  console.log(this.quotes);   
+  }
+   
+
 
 }
