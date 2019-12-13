@@ -1,3 +1,4 @@
+import { QuoteObj } from './../shared/quote';
 import { Component, OnInit } from '@angular/core';
 import { QuoteService } from '../shared/quote.service';
 
@@ -8,12 +9,16 @@ import { QuoteService } from '../shared/quote.service';
 })
 export class QuoteListComponent implements OnInit {
 
-  public teste;
+  public quotes: QuoteObj[] = [];
   constructor(private quoteService: QuoteService) { }
 
   ngOnInit() {
-    this.teste = this.quoteService.mock;
-    console.log (this.  teste);
+    console.log ("quoteList");
+    this.quoteService.quoteItem$.subscribe(quotes => {
+      console.log (quotes);
+      this.quotes = quotes;
+    });
+    
   }
 
 }
