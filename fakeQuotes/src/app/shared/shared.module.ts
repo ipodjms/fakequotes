@@ -1,3 +1,4 @@
+import { CoreModule } from './../core/core.module';
 import { HeaderComponent } from './../core/header/header.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -5,10 +6,10 @@ import { CommonModule } from '@angular/common';
 
 
 @NgModule({
-  declarations: [HeaderComponent],
+  declarations: [],
   imports: [
     CommonModule
   ],
-  exports: [HeaderComponent]
+  exports: []
 })
 export class SharedModule { }
