@@ -39,14 +39,14 @@ export class QuoteListComponent implements OnInit {
     this.quotes = this.quotes
   .filter((quotes, index) => this.quotes.lastIndexOf(quotes) === index)
   .sort((a, b) => a.value < b.value ? -1 : 1);
-    this.toogleBtn();
+    this.controlBtn = false;
   }
 
   public orderByHighPrice() {
     this.quotes = this.quotes
   .filter((quotes, index) => this.quotes.lastIndexOf(quotes) === index)
   .sort((a, b) => a.value > b.value ? -1 : 1);
-    this.toogleBtn();
+    this.controlBtn = true;
   }
 
   public toogleBtn(): void {
