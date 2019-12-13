@@ -4,7 +4,7 @@
         <h1>Explore o mercado</h1>
     </div>
 
-    <div class="float-right hold-btns">
+    <div class="float-right hold-btns" *ngIf="!loading">
         <span class="color color-gray-300 mr-3 order">Ordenar:</span>
         <a class="button mr-2" [ngClass]="{'color-white bg-blue': controlBtn === true, 'color-gray-300 bg-gray-200': controlBtn === false}" (click)="orderByHighPrice()">Em Alta</a>
         <a class="button" [ngClass]="{'color-white bg-blue': controlBtn === false, 'color-gray-300 bg-gray-200': controlBtn === true}" (click)="orderByLowPrice()">Em Baixa</a>
@@ -12,7 +12,7 @@
 
     <div class="clearfix"></div>
 
-    <div *ngIf="loading">Carregando ...</div>
+    <div *ngIf="loading" class="text-center pt-8 d-block loading"><img src="../../../assets/images/loading.gif"> </div>
 
     <div class="hold-itens">
         <div class="row">

@@ -25,6 +25,13 @@ h1 {font-family:$font-family-h1}
     .hold-itens {
         padding-top: 60px;
     }
+    .loading {
+        position: relative;
+        top: 50px;
+        img {
+            max-width: 80px;
+        }
+    }
 }
 
 @include media-breakpoint-down(sm) { 
