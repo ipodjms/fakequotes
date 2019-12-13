@@ -41,6 +41,8 @@ export class WebsocketService {
   }
 
   public clearQuoteItem(): void {
+    this.quoteArray = [];
+    this.myArray = [];
     this.quoteItemSource.next(null);
   }
 

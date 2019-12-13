@@ -1,3 +1,9 @@
 <p>quote-list works!</p>
 
-{{quotes[0]?.name}}
+<div *ngIf="loading">Carregando ...</div>
+
+<div *ngFor="let quote of quotes; let i = index">
+    <app-quote [name]="quote.name" [price]="quote.value"></app-quote>
+</div>
+
+<a (click)="reloadItens()">New Itens</a>
