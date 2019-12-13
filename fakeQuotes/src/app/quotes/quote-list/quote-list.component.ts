@@ -16,13 +16,11 @@ export class QuoteListComponent implements OnInit {
   constructor(private quoteService: QuoteService) { }
 
   ngOnInit() {
-    console.log ("quoteList");
-    this.getQuotes(); 
+    this.getQuotes();
   }
 
   public getQuotes() {
     this.quoteService.quoteItem$.subscribe(quotes => {
-      console.log (quotes);
       this.quotes = quotes;
       if (this.quotes) {
        this.orderByHighPrice();
@@ -41,7 +39,6 @@ export class QuoteListComponent implements OnInit {
     this.quotes = this.quotes
   .filter((quotes, index) => this.quotes.lastIndexOf(quotes) === index)
   .sort((a, b) => a.value < b.value ? -1 : 1);
-    console.log(this.quotes);
     this.toogleBtn();
   }
 
@@ -49,15 +46,13 @@ export class QuoteListComponent implements OnInit {
     this.quotes = this.quotes
   .filter((quotes, index) => this.quotes.lastIndexOf(quotes) === index)
   .sort((a, b) => a.value > b.value ? -1 : 1);
-    console.log(this.quotes);
     this.toogleBtn();
   }
 
   public toogleBtn(): void {
     if (this.controlBtn === false) {
       this.controlBtn = true;
-    }
-    else {
+    } else {
       this.controlBtn = false;
     }
   }

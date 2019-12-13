@@ -32,7 +32,6 @@ export class WebsocketService {
     connection.onmessage = function(e) {
         count = count + 1;
         self.getItensByServer(e.data, connection, count);
-        console.log(count);
     };
   }
 
