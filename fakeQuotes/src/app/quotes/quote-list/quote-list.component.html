@@ -1,13 +1,22 @@
-<p>quote-list works!</p>
+<div class="hold-quotes">
+    
+    
+    <h1>Explore o mercado</h1>
 
-<div *ngIf="loading">Carregando ...</div>
+    <div>
+        <span class="color color-gray-3">Ordenar:</span>
+        <a (click)="orderByHighPrice()">Ordenar Pelo Maior Preço</a>
 
-<div *ngFor="let quote of quotes; let i = index">
-    <app-quote [name]="quote.name" [price]="quote.value"></app-quote>
+        <a (click)="orderByLowPrice()">Ordenar Pelo Menor Preço</a>
+    </div>
+
+    <div *ngIf="loading">Carregando ...</div>
+
+    <div *ngFor="let quote of quotes; let i = index">
+        <app-quote [name]="quote?.name" [price]="quote?.value"></app-quote>
+    </div>
+
+    <a (click)="reloadItens()">Regarregar</a>
+
+
 </div>
-
-<a (click)="reloadItens()">Regarregar</a>
-
-<a (click)="orderByHighPrice()">Ordenar Pelo Maior Preço</a>
-
-<a (click)="orderByLowPrice()">Ordenar Pelo Menor Preço</a>

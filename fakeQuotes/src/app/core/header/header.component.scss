@@ -1,0 +1,28 @@
+// Custom.scss
+// Option B: Include parts of Bootstrap
+
+// Required
+@import "./../../../assets/scss/functions";
+@import "./../../../assets/scss/variables";
+@import "./../../../assets/scss/mixins";
+
+
+
+.header {
+    height:80px;
+    img {
+        max-width: 126px;
+        position:relative;
+        left:-10px;
+    }
+}
+
+@include media-breakpoint-down(sm) { 
+    .header {
+        height:56px;
+        img {
+            max-width: 102px;
+        }
+    }
+}
+
