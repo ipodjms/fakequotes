@@ -2,7 +2,43 @@
 @import "./../../../assets/scss/variables";
 @import "./../../../assets/scss/mixins";
 
+
+
 h1 {font-family:$font-family-h1}
+
 .hold-quotes {
     padding-top: 52px;
+    .button {
+        border-radius: 100px;
+        text-align:center;
+        padding:0.5rem 1rem;
+        font-size: 0.875rem;
+        cursor:pointer;
+    }
+    .order {
+        font-size: 0.875rem;
+    }
+    .hold-btns {
+        position: relative;
+        top:2px;
+    }
+    .hold-itens {
+        padding-top: 60px;
+    }
+}
+
+@include media-breakpoint-down(sm) { 
+    h1 {
+        margin-bottom:42px;
+        font-size: 1.5rem;
+    }
+    .hold-quotes {
+        .hold-title, .hold-btns {
+            float:none !important;
+            width: 100%;
+        }
+        .hold-itens {
+            padding-top: 40px;
+        }
+    }
 }
