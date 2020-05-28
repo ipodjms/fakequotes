@@ -13,7 +13,7 @@ export class WebsocketService {
   public quoteItem$ = this.quoteItemSource.asObservable();
  
 
-  public myArray = [];
+  public serverQuotes = [];
   public quoteArray: QuoteObj[] = [];
 
   constructor(
@@ -41,15 +41,15 @@ export class WebsocketService {
 
   public clearQuoteItem(): void {
     this.quoteArray = [];
-    this.myArray = [];
+    this.serverQuotes = [];
     this.quoteItemSource.next(null);
   }
 
   public getItensByServer(e, conn, count) {
-    this.myArray.push(JSON.parse(e));
+    this.serverQuotes.push(JSON.parse(e));
     if (count === 12) {
         conn.close();        
-        this.transformData(this.myArray);
+        this.transformData(this.serverQuotes);
     }
 }
 
